@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capacitação Foundry — Squad Optimus</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:#F0F4F8;color:#1B3A6B;min-height:100vh;padding:1.5rem}
+  .wrap{max-width:960px;margin:0 auto}
+  .header{background:#1B3A6B;border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .header-left h1{font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:3px}
+  .header-left p{font-size:12px;color:#A8C8EC}
+  .header-right{display:flex;gap:8px;flex-wrap:wrap}
+  .badge{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px}
+  .badge-restricted{background:#FCF0F0;color:#8B1A1A}
+  .gold-bar{height:4px;background:linear-gradient(90deg,#F0A500,#F5C842,#1B3A6B);border-radius:0 0 6px 6px;margin-bottom:1rem}
+  .updated{background:#EAF3DE;border-radius:8px;padding:6px 12px;font-size:11px;color:#1A6640;display:inline-flex;align-items:center;gap:6px;margin-bottom:1rem}
+  .sec{font-size:10.5px;font-weight:600;color:#6B7D8E;letter-spacing:.1em;text-transform:uppercase;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .sec::after{content:'';flex:1;height:1px;background:#DDE9F9}
+  .dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+  .dev-card{background:#fff;border:1px solid #DDE9F9;border-radius:12px;padding:1rem 1.25rem;position:relative;overflow:hidden}
+  .dev-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;color:#fff}
+  .dev-name{font-size:13px;font-weight:600;color:#1B3A6B}
+  .dev-role{font-size:11px;color:#6B7D8E;margin-top:1px}
+  .prog-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .prog-label{font-size:11px;color:#6B7D8E;width:58px;flex-shrink:0}
+  .prog-bar{flex:1;height:8px;background:#EDF2F8;border-radius:4px;overflow:hidden}
+  .prog-fill{height:100%;border-radius:4px;transition:width .6s ease}
+  .prog-pct{font-size:11px;font-weight:600;width:34px;text-align:right;flex-shrink:0}
+  .detail{font-size:11px;color:#6B7D8E;margin-top:8px;padding-top:8px;border-top:1px solid #EDF2F8;line-height:1.6}
+  .detail strong{color:#1B3A6B;font-weight:500}
+  .meetings{background:#fff;border:1px solid #DDE9F9;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+  .meet-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #EDF2F8;font-size:12px}
+  .meet-row:last-child{border-bottom:none}
+  .meet-date{width:44px;flex-shrink:0;font-weight:600;color:#1B3A6B}
+  .meet-tag{width:80px;flex-shrink:0}
+  .meet-topic{flex:1;color:#4A5568;line-height:1.5}
+  .tag-pill{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px}
+  .t-foundry{background:#E6F1FB;color:#0C447C}
+  .t-python{background:#EAF3DE;color:#1A6640}
+  .t-sql{background:#EEEDFE;color:#3C3489}
+  .t-done{background:#D4EDDA;color:#155724}
+  .footer{text-align:center;font-size:11px;color:#9AB0C4;padding:1rem 0 .5rem;border-top:1px solid #DDE9F9;margin-top:.5rem}
+  @media(max-width:600px){.dev-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Capacitação Foundry — Squad Optimus</h1>
+      <p>Trilha priorizada: ~31h · Cliente Lear · Acompanhamento via Teams + Loop</p>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-restricted">Restrito</span>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+
+  <div class="updated">&#10003; Última atualização: 03/Jun/2026</div>
+
+  <div class="sec">Cards individuais — status e progresso</div>
+  <div class="dev-grid">
+
+    <!-- EMILLY -->
+    <div class="dev-card">
+      <div class="dev-head">
+        <div class="avatar" style="background:#7C3AED">EK</div>
+        <div>
+          <div class="dev-name">Emilly Kennieli</div>
+          <div class="dev-role">Foco: Foundry + Projeto DPR</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">Foundry</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:70%;background:#7C3AED"></div></div>
+        <span class="prog-pct">70%</span>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">ETL</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:30%;background:#1A6640"></div></div>
+        <span class="prog-pct">30%</span>
+      </div>
+      <div class="detail">
+        <strong>Progresso:</strong> Foundry Módulos 1–7 ✔ · ETL/Python em andamento · 1 projeto ativo (DPR)
+      </div>
+    </div>
+
+    <!-- VANESSA -->
+    <div class="dev-card">
+      <div class="dev-head">
+        <div class="avatar" style="background:#E91E63">VR</div>
+        <div>
+          <div class="dev-name">Vanessa Rossi</div>
+          <div class="dev-role">Foco: Foundry + ETL/Python</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">Foundry</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:100%;background:#E91E63"></div></div>
+        <span class="prog-pct">100%</span>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">ETL</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:30%;background:#1A6640"></div></div>
+        <span class="prog-pct">30%</span>
+      </div>
+      <div class="detail">
+        <strong>Progresso:</strong> Foundry Módulos 1–10 ✔ Finalizados · ETL/Python em andamento
+      </div>
+    </div>
+
+    <!-- BRUNO -->
+    <div class="dev-card">
+      <div class="dev-head">
+        <div class="avatar" style="background:#0D9488">BY</div>
+        <div>
+          <div class="dev-name">Bruno Yoshihara</div>
+          <div class="dev-role">Foco: Foundry + ETL + SQL</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">Foundry</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:50%;background:#0D9488"></div></div>
+        <span class="prog-pct">50%</span>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">ETL</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:25%;background:#1A6640"></div></div>
+        <span class="prog-pct">25%</span>
+      </div>
+      <div class="detail">
+        <strong>Progresso:</strong> Foundry Módulos 1–5 ✔ · ETL Seções 1–4.18 · SQL iniciado (02/Jun)
+      </div>
+    </div>
+
+    <!-- IAGO -->
+    <div class="dev-card">
+      <div class="dev-head">
+        <div class="avatar" style="background:#2563EB">IO</div>
+        <div>
+          <div class="dev-name">Iago De Oliveira</div>
+          <div class="dev-role">Foco: ETL + Foundry</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">Foundry</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:20%;background:#2563EB"></div></div>
+        <span class="prog-pct">20%</span>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">ETL</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:25%;background:#1A6640"></div></div>
+        <span class="prog-pct">25%</span>
+      </div>
+      <div class="detail">
+        <strong>Progresso:</strong> Foundry Módulos 1–2 ✔ · ETL Seções 1–4 (Excel/CSV/TXT)
+      </div>
+    </div>
+
+    <!-- IGOR -->
+    <div class="dev-card">
+      <div class="dev-head">
+        <div class="avatar" style="background:#D97706">IF</div>
+        <div>
+          <div class="dev-name">Igor Freitas</div>
+          <div class="dev-role">Foco: Foundry + ETL</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">Foundry</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:40%;background:#D97706"></div></div>
+        <span class="prog-pct">40%</span>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">ETL</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:70%;background:#1A6640"></div></div>
+        <span class="prog-pct">70%</span>
+      </div>
+      <div class="detail">
+        <strong>Progresso:</strong> Foundry Módulos 1–4 ✔ · ETL/Python Seções 1–10 em andamento
+      </div>
+    </div>
+
+    <!-- LEONARDO -->
+    <div class="dev-card">
+      <div class="dev-head">
+        <div class="avatar" style="background:#6366F1">LH</div>
+        <div>
+          <div class="dev-name">Leonardo Heck</div>
+          <div class="dev-role">Foco: Foundry</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">Foundry</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:45%;background:#6366F1"></div></div>
+        <span class="prog-pct">45%</span>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">ETL</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:10%;background:#1A6640"></div></div>
+        <span class="prog-pct">10%</span>
+      </div>
+      <div class="detail">
+        <strong>Progresso:</strong> Foundry Módulos 1–4 ✔, Módulo 5 em andamento (73%) · ETL Seção 1 em andamento
+      </div>
+    </div>
+
+    <!-- YURI -->
+    <div class="dev-card">
+      <div class="dev-head">
+        <div class="avatar" style="background:#059669">YS</div>
+        <div>
+          <div class="dev-name">Yuri Salvador</div>
+          <div class="dev-role">Foco: Foundry — Iniciando trilha</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">Foundry</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#059669"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      <div class="prog-row">
+        <span class="prog-label">ETL</span>
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#1A6640"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      <div class="detail">
+        <strong>Progresso:</strong> Iniciando capacitação (semana de 03/Jun) · Participou dos encontros práticos realizados · Sustentação
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec">Encontros práticos</div>
+  <div class="meetings">
+    <div class="meet-row">
+      <span class="meet-date">26/Mai</span>
+      <span class="meet-tag"><span class="tag-pill t-done">✔ Realizado</span></span>
+      <span class="meet-topic">Pipeline Builder: criação de pipeline, transformações, formatação de dados</span>
+    </div>
+    <div class="meet-row">
+      <span class="meet-date">27/Mai</span>
+      <span class="meet-tag"><span class="tag-pill t-done">✔ Realizado</span></span>
+      <span class="meet-topic">Ontology Manager: links, actions, variáveis e workshop/dashboard</span>
+    </div>
+    <div class="meet-row">
+      <span class="meet-date">28/Mai</span>
+      <span class="meet-tag"><span class="tag-pill t-done">✔ Realizado</span></span>
+      <span class="meet-topic">Foundry Conexão de Dados + Python ETL Banco de Dados</span>
+    </div>
+    <div class="meet-row">
+      <span class="meet-date">29/Mai</span>
+      <span class="meet-tag"><span class="tag-pill t-done">✔ Realizado</span></span>
+      <span class="meet-topic">Foundry Template Pipeline de Dados — Rafael</span>
+    </div>
+    <div class="meet-row">
+      <span class="meet-date">01/Jun</span>
+      <span class="meet-tag"><span class="tag-pill t-done">✔ Realizado</span></span>
+      <span class="meet-topic">Manipulação Excel/CSV/TXT — Vinicius</span>
+    </div>
+    <div class="meet-row">
+      <span class="meet-date">03/Jun</span>
+      <span class="meet-tag"><span class="tag-pill t-python">Python</span></span>
+      <span class="meet-topic">Tratamento de Dados — Douglas</span>
+    </div>
+    <div class="meet-row">
+      <span class="meet-date">05/Jun</span>
+      <span class="meet-tag"><span class="tag-pill t-sql">SQL</span></span>
+      <span class="meet-topic">SQL Queries complexas + Cases do dia a dia — Douglas</span>
+    </div>
+    <div class="meet-row">
+      <span class="meet-date">08/Jun</span>
+      <span class="meet-tag"><span class="tag-pill t-sql">SQL</span></span>
+      <span class="meet-topic">Queries complexas do dia a dia — Rafa/Vini/Gustavo</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Squad Optimus · Meta Serviços em Informática · Cliente Lear Corporation · Responsável: João Vítor Feltrin<br>
+    Dashboard atualizado a cada 3 dias — dados reais do Microsoft Loop e Azure DevOps
+  </div>
+
+</div>
+</body>
+</html>
