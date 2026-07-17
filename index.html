@@ -106,20 +106,20 @@
   }
 
   /* ── PAGE WRAP ── */
-  .page { max-width: 1100px; margin: 0 auto; padding: 40px 24px 60px; }
+  .page { max-width: 1200px; margin: 0 auto; padding: 24px 24px 40px; }
 
   /* ── HERO STATS ── */
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 40px;
+    gap: 12px;
+    margin-bottom: 24px;
   }
   .stat-box {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 24px 22px;
+    padding: 14px 16px;
     position: relative;
     overflow: hidden;
   }
@@ -131,56 +131,58 @@
     background: var(--red);
   }
   .stat-label {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--gray-60);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .stat-label-en {
-    font-size: 9px;
+    font-size: 8px;
     color: var(--gray-30);
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     display: block;
   }
   .stat-number {
-    font-size: 38px;
+    font-size: 30px;
     font-weight: 800;
     color: var(--black);
     line-height: 1;
   }
   .stat-number span {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--gray-60);
     margin-left: 3px;
   }
   .stat-sub {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--gray-60);
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
   /* ── SECTION TITLE ── */
   .section-header {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 12px;
   }
   .section-title {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--black);
+    white-space: nowrap;
   }
   .section-title-en {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--gray-30);
     letter-spacing: 1px;
+    white-space: nowrap;
   }
   .section-line {
     flex: 1;
@@ -188,12 +190,13 @@
     background: var(--border);
   }
 
-  /* ── CARDS GRID ── */
+  /* ── CARDS GRID — 3 colunas ── */
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+    grid-auto-rows: 1fr;
   }
 
   .dev-card {
@@ -201,32 +204,38 @@
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
-    transition: box-shadow .2s;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-left: 3px solid var(--border);
+    height: 100%;
   }
-  .dev-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .dev-card.cap  { border-left-color: var(--level-cap); }
+  .dev-card.dev  { border-left-color: var(--level-dev); }
+  .dev-card.ini  { border-left-color: var(--level-ini); }
 
-  .card-top {
-    padding: 20px 18px 16px;
-    border-bottom: 1px solid var(--gray-10);
+  /* Ring — left column */
+  .card-ring-col {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 12px;
+    justify-content: center;
+    padding: 12px 10px;
+    background: var(--gray-10);
+    min-width: 70px;
+    flex-shrink: 0;
   }
 
   /* Ring chart */
   .ring-wrap {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 54px;
+    height: 54px;
     flex-shrink: 0;
   }
-  .ring-wrap svg {
-    transform: rotate(-90deg);
-  }
-  .ring-bg { fill: none; stroke: var(--gray-10); stroke-width: 8; }
-  .ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset .6s ease; }
+  .ring-wrap svg { transform: rotate(-90deg); }
+  .ring-bg { fill: none; stroke: var(--white); stroke-width: 6; }
+  .ring-fill { fill: none; stroke-width: 6; stroke-linecap: round; }
   .ring-label {
     position: absolute;
     inset: 0;
@@ -236,66 +245,81 @@
     justify-content: center;
   }
   .ring-pct {
-    font-size: 17px;
+    font-size: 13px;
     font-weight: 800;
     color: var(--black);
     line-height: 1;
   }
   .ring-pct-sub {
-    font-size: 8px;
+    font-size: 7px;
     color: var(--gray-30);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
   }
 
-  .dev-name { font-size: 13px; font-weight: 700; color: var(--black); }
-  .dev-role { font-size: 10px; color: var(--gray-60); margin-top: 2px; }
+  /* Info — right column */
+  .card-info-col {
+    flex: 1;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .card-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .dev-name { font-size: 12px; font-weight: 700; color: var(--black); white-space: nowrap; }
+  .dev-role { font-size: 9px; color: var(--gray-60); }
 
   .level-badge {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 9px;
+    gap: 4px;
+    font-size: 8px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    padding: 3px 9px;
+    padding: 2px 7px;
     border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .level-badge::before {
     content: '';
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: currentColor;
+    flex-shrink: 0;
   }
   .badge-cap   { background: #E8F5ED; color: var(--level-cap); }
   .badge-dev   { background: #FFF3DC; color: var(--level-dev); }
   .badge-ini   { background: #F0F0F0; color: var(--level-ini); }
 
-  .card-body { padding: 14px 18px; }
-
-  /* Progress bars */
-  .prog-item { margin-bottom: 10px; }
-  .prog-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-  .prog-name { font-size: 10px; font-weight: 600; color: var(--gray-60); letter-spacing: 0.5px; }
-  .prog-pct-small { font-size: 10px; font-weight: 700; color: var(--black); }
-  .prog-track { height: 5px; background: var(--gray-10); border-radius: 3px; overflow: hidden; }
-  .prog-bar { height: 100%; border-radius: 3px; }
+  /* Progress bar */
+  .prog-item { margin-bottom: 0; }
+  .prog-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
+  .prog-name { font-size: 9px; font-weight: 600; color: var(--gray-60); letter-spacing: 0.3px; }
+  .prog-pct-small { font-size: 9px; font-weight: 700; color: var(--black); }
+  .prog-track { height: 4px; background: var(--gray-10); border-radius: 2px; overflow: hidden; }
+  .prog-bar { height: 100%; border-radius: 2px; }
   .bar-foundry { background: var(--red); }
-  .bar-etl     { background: var(--black); }
 
   /* Skills tags */
-  .skills-section { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--gray-10); }
-  .skills-label { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-30); margin-bottom: 7px; }
-  .skills-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .skills-section { margin-top: 4px; }
+  .skills-tags { display: flex; flex-wrap: wrap; gap: 3px; }
   .skill-tag {
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 3px;
+    padding: 1px 5px;
+    border-radius: 2px;
     background: var(--gray-10);
     color: var(--gray-60);
-    letter-spacing: 0.3px;
   }
   .skill-tag.highlight {
     background: #FFE8E8;
@@ -303,77 +327,38 @@
   }
 
   /* Projects */
-  .projects-section { margin-top: 10px; }
+  .projects-section { margin-top: 4px; }
   .proj-tag {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 9px;
+    gap: 4px;
+    font-size: 8px;
     font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 3px;
+    padding: 1px 6px;
+    border-radius: 2px;
     border: 1px solid var(--border);
     color: var(--gray-60);
-    margin: 2px 2px 0 0;
+    margin: 1px 2px 0 0;
   }
   .proj-tag::before {
     content: '◆';
-    font-size: 5px;
+    font-size: 4px;
     color: var(--red);
-  }
-
-  /* ── ENCONTROS TABLE ── */
-  .meetings-table {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 40px;
-  }
-  .meetings-table table { width: 100%; border-collapse: collapse; }
-  .meetings-table th {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gray-60);
-    background: var(--gray-10);
-    padding: 10px 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-  .meetings-table td {
-    font-size: 11px;
-    color: var(--gray-60);
-    padding: 9px 16px;
-    border-bottom: 1px solid var(--gray-10);
-    vertical-align: middle;
-  }
-  .meetings-table tr:last-child td { border-bottom: none; }
-  .meet-date-cell { font-weight: 700; color: var(--black); white-space: nowrap; width: 80px; }
-  .meet-topic-cell { color: var(--black); }
-  .done-dot {
-    display: inline-block;
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--level-cap);
-    margin-right: 6px;
-    vertical-align: middle;
   }
 
   /* ── FOOTER ── */
   .footer {
     border-top: 1px solid var(--border);
-    padding-top: 20px;
+    padding-top: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .footer-left { font-size: 10px; color: var(--gray-30); line-height: 1.8; }
-  .footer-right { font-size: 10px; color: var(--gray-30); text-align: right; }
+  .footer-left { font-size: 9px; color: var(--gray-30); line-height: 1.8; }
+  .footer-right { font-size: 9px; color: var(--gray-30); text-align: right; }
 
   @media (max-width: 900px) {
-    .cards-grid { grid-template-columns: 1fr; }
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
     .hero { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 540px) {
@@ -444,276 +429,192 @@
 
   <div class="cards-grid">
 
-    <!-- VANESSA -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card cap">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="0"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="0.0"/></svg>
           <div class="ring-label"><span class="ring-pct">100%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Vanessa Rossi</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-cap">Capacitada · Ready</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Vanessa Rossi</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-cap">Capacitada · Ready</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">100%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:100%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag highlight">Pipeline Builder</span>
-            <span class="skill-tag highlight">Ontology</span>
-            <span class="skill-tag highlight">AIP Analyst</span>
-            <span class="skill-tag highlight">Code Repos</span>
-            <span class="skill-tag">Modal Workshop</span>
-            <span class="skill-tag">Data Lineage</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag  highlight">Pipeline Builder</span><span class="skill-tag  highlight">Ontology</span><span class="skill-tag  highlight">AIP Analyst</span></div></div>
         <div class="projects-section"><span class="proj-tag">SMAC</span></div>
       </div>
     </div>
 
-    <!-- POLIANA -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card ini">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="201.06"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="150.8"/></svg>
           <div class="ring-label"><span class="ring-pct">0%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Poliana Cristina Ramos</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-ini">Iniciante · Beginner</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Poliana Cristina Ramos</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-ini">Iniciante · Beginner</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">0%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:0%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags"><span class="skill-tag">Trilha iniciando</span></div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag">Trilha iniciando</span></div></div>
+        <div class="projects-section">&nbsp;</div>
       </div>
     </div>
 
-    <!-- EMILLY -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card cap">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="40.21"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="30.16"/></svg>
           <div class="ring-label"><span class="ring-pct">80%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Emilly Kennieli</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-cap">Capacitada · Ready</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Emilly Kennieli</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-cap">Capacitada · Ready</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">80%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:80%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag highlight">Pipeline Builder</span>
-            <span class="skill-tag highlight">Ontology</span>
-            <span class="skill-tag highlight">Applied Notional</span>
-            <span class="skill-tag">Conexão de Dados</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag  highlight">Pipeline Builder</span><span class="skill-tag  highlight">Ontology</span><span class="skill-tag  highlight">Applied Notional</span></div></div>
         <div class="projects-section"><span class="proj-tag">DPR</span></div>
       </div>
     </div>
 
-    <!-- IGOR -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card dev">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="120.64"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="90.48"/></svg>
           <div class="ring-label"><span class="ring-pct">40%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Igor Freitas</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-dev">Em desenvolvimento · In progress</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Igor Freitas</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-dev">Em desenvolvimento · In progress</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">40%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:40%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag highlight">Pipeline Builder</span>
-            <span class="skill-tag highlight">Ontology</span>
-            <span class="skill-tag">Conexão de Dados</span>
-            <span class="skill-tag">AIP Workflow</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag  highlight">Pipeline Builder</span><span class="skill-tag  highlight">Ontology</span><span class="skill-tag">AIP Workflow</span></div></div>
         <div class="projects-section"><span class="proj-tag">BPM Foundry</span></div>
       </div>
     </div>
 
-    <!-- BRUNO -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card dev">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="80.42"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="60.32"/></svg>
           <div class="ring-label"><span class="ring-pct">60%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Bruno Yoshihara</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-dev">Em desenvolvimento · In progress</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Bruno Yoshihara</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-dev">Em desenvolvimento · In progress</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">60%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:60%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag highlight">Pipeline Builder</span>
-            <span class="skill-tag highlight">Ontology</span>
-            <span class="skill-tag">Code Repos</span>
-            <span class="skill-tag">SQL Avançado</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag  highlight">Pipeline Builder</span><span class="skill-tag  highlight">Ontology</span><span class="skill-tag">Code Repos</span></div></div>
         <div class="projects-section"><span class="proj-tag">IPPM</span></div>
       </div>
     </div>
 
-    <!-- IAGO -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card ini">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="140.74"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="105.56"/></svg>
           <div class="ring-label"><span class="ring-pct">30%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Iago De Oliveira</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-ini">Iniciante · Beginner</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Iago De Oliveira</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-ini">Iniciante · Beginner</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">30%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:30%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag">Pipeline Builder</span>
-            <span class="skill-tag">Módulo 3 em andamento</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag">Pipeline Builder</span><span class="skill-tag">Módulo 3 em andamento</span></div></div>
+        <div class="projects-section">&nbsp;</div>
       </div>
     </div>
 
-    <!-- LEONARDO -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card cap">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="40.21"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="30.16"/></svg>
           <div class="ring-label"><span class="ring-pct">80%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Leonardo Heck</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-cap">Capacitado · Ready</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Leonardo Heck</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-cap">Capacitado · Ready</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">80%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:80%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag highlight">Pipeline Builder</span>
-            <span class="skill-tag highlight">Ontology</span>
-            <span class="skill-tag">Módulos 6–10</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag  highlight">Pipeline Builder</span><span class="skill-tag  highlight">Ontology</span><span class="skill-tag">Módulos 6–10</span></div></div>
+        <div class="projects-section">&nbsp;</div>
       </div>
     </div>
 
-    <!-- YURI -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card ini">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="201.06"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="150.8"/></svg>
           <div class="ring-label"><span class="ring-pct">0%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Yuri Salvador</div><div class="dev-role">Data Engineer · Sustentação</div></div>
-        <span class="level-badge badge-ini">Iniciante · Beginner</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Yuri Salvador</div><div class="dev-role">Data Engineer · Sustentação</div></div>
+          <span class="level-badge badge-ini">Iniciante · Beginner</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">0%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:0%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag">Trilha iniciando</span>
-            <span class="skill-tag">Encontros práticos ✔</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag">Trilha iniciando</span><span class="skill-tag">Encontros práticos ✔</span></div></div>
+        <div class="projects-section">&nbsp;</div>
       </div>
     </div>
 
-    <!-- STIPHANIE -->
-    <div class="dev-card">
-      <div class="card-top">
+    <div class="dev-card ini">
+      <div class="card-ring-col">
         <div class="ring-wrap">
-          <svg viewBox="0 0 80 80" width="80" height="80">
-            <circle class="ring-bg" cx="40" cy="40" r="32"/>
-            <circle class="ring-fill bar-foundry" cx="40" cy="40" r="32"
-              stroke-dasharray="201.06" stroke-dashoffset="140.74"/>
-          </svg>
+          <svg viewBox="0 0 54 54" width="54" height="54"><circle class="ring-bg" cx="27" cy="27" r="21"/><circle class="ring-fill bar-foundry" cx="27" cy="27" r="21" stroke-dasharray="131.95" stroke-dashoffset="105.56"/></svg>
           <div class="ring-label"><span class="ring-pct">30%</span><span class="ring-pct-sub">Foundry</span></div>
         </div>
-        <div><div class="dev-name">Stiphanie</div><div class="dev-role">Data Engineer</div></div>
-        <span class="level-badge badge-ini">Iniciante · Beginner</span>
       </div>
-      <div class="card-body">
+      <div class="card-info-col">
+        <div class="card-name-row">
+          <div><div class="dev-name">Stiphanie</div><div class="dev-role">Data Engineer</div></div>
+          <span class="level-badge badge-ini">Iniciante · Beginner</span>
+        </div>
         <div class="prog-item">
           <div class="prog-header"><span class="prog-name">Foundry</span><span class="prog-pct-small">30%</span></div>
           <div class="prog-track"><div class="prog-bar bar-foundry" style="width:30%"></div></div>
         </div>
-        <div class="skills-section">
-          <div class="skills-label">Habilidades Foundry · Skills</div>
-          <div class="skills-tags">
-            <span class="skill-tag">Módulos 1–3 ✔</span>
-            <span class="skill-tag">Módulo 5 em andamento</span>
-          </div>
-        </div>
+        <div class="skills-section"><div class="skills-tags"><span class="skill-tag">Módulos 1–3 ✔</span><span class="skill-tag">Módulo 5 em andamento</span></div></div>
+        <div class="projects-section">&nbsp;</div>
       </div>
     </div>
 
